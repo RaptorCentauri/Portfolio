@@ -16,8 +16,7 @@ const Portfolio = () => {
 
     return(
       <div className='portfolio-wrapper' ref={portfolioRef}>
-
-          {projects.map((e => <PortfolioCard key={e.id} site={e.site}  name={e.name} pic={e.files[0]} code={e.code} about={e.about}/>)}
+          {projects.map((e => <PortfolioCard key={e.id} site={e.site}  name={e.name} pic={e.files[0]} code={e.code} about={e.about}/>))}
       </div>
     )
 }

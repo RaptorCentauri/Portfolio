@@ -95,11 +95,11 @@
 .cardFront{
   $side: 'front';
   @include CardStyle;
-  @include CardTitleStyle($side)
-  @include CardBodyStyle($side)
+  @include CardTitleStyle($side);
+  @include CardBodyStyle($side);
 
   @include breakpoint(phone){
-    @include phone-layout('front')
+    @include phone-layout('front');
   }
 
   @include breakpoint(tablet-portrait){
@@ -123,8 +123,8 @@
 .cardBack{
   $side: 'back';
   @include CardStyle;
-  @include CardTitleStyle($side)
-  @include CardBodyStyle($side)
+  @include CardTitleStyle($side);
+  @include CardBodyStyle($side);
 
 
   @include breakpoint(phone){

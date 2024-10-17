@@ -1,7 +1,7 @@
 version: 2.1  # Use CircleCI 2.1
 
 executors:
-  python-3.9-executor:
+  python_executor:  # Updated executor name
     docker:
       - image: circleci/python:3.9  # Use an official Python image
 
@@ -50,7 +50,7 @@ commands:
 
 jobs:
   build:
-    executor: python-3.9-executor  # Use the Python executor
+    executor: python_executor  # Use the updated executor name
     steps:
       - checkout
       - get_pip

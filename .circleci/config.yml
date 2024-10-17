@@ -19,6 +19,7 @@ commands:
           command: |
             node -v
             npm -v
+
   get_pip:
     description: "Install pip for Python 3.9"
     steps:
@@ -66,6 +67,7 @@ jobs:
     executor: python_executor  # Use the updated executor name
     steps:
       - checkout
+      - install_node_and_npm  # Install Node.js and npm first
       - get_pip
       - get_aws_cli
       - install_npm

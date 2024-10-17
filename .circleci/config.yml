@@ -9,7 +9,8 @@ commands:
   get_pip:
     description: "install pip"
     steps:
-      - run: sudo apt-get install python3-dev
+      - run: sudo apt-get update
+      - run: sudo apt-get install python-dev --fix-missing
       - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
       - run: sudo python get-pip.py
       - run: pip install --upgrade pip

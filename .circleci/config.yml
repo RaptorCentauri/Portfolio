@@ -1,9 +1,9 @@
 version: 2.1 # use CircleCI 2.1
 
 executors:
-  node-14-executor:
+  node-18-executor:  # Changed to Node.js 18
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:18
 
 commands:
   get_pip:
@@ -47,7 +47,7 @@ commands:
 
 jobs:
   build:
-    executor: node-14-executor
+    executor: node-18-executor  # Updated executor
     steps:
       - checkout
       - get_pip

@@ -1,9 +1,9 @@
 version: 2.1 # use CircleCI 2.1
 
 executors:
-  node-11-executor:
+  node-14-executor:
     docker:
-      - image: circleci/node:11.0
+      - image: circleci/node:14
 
 commands:
   get_pip:
@@ -44,7 +44,7 @@ commands:
 
 jobs:
   build:
-    executor: node-11-executor
+    executor: node-14-executor
     steps:
       - checkout
       - get_pip

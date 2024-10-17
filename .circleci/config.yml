@@ -10,16 +10,15 @@ commands:
     description: "Install Node.js and npm"
     steps:
       - run:
-          name: "Install Node.js"
+          name: "Install Node.js v18.x"
           command: |
-            curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+            curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
             sudo apt-get install -y nodejs
       - run:
           name: "Verify Node.js and npm installation"
           command: |
             node -v
             npm -v
-
   get_pip:
     description: "Install pip for Python 3.9"
     steps:
@@ -67,9 +66,9 @@ jobs:
     executor: python_executor  # Use the updated executor name
     steps:
       - checkout
-      - install_node_and_npm  # Install Node.js and npm first
       - get_pip
       - get_aws_cli
+      - install_node_and_npm  # This step now installs Node.js 18.x
       - install_npm
       - install_dependencies
       - test_code

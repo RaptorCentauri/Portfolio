@@ -7,10 +7,9 @@ import profilePic from './assets/images/profile_img.jpg'
 
 const AboutMe = (props) => {
 
-  const aboutMe =
-  `Driven by curiosity, I am avid learner and always seeking unconventional solutions to existing problems.  This has led me to explore my fascination of the interactions between people and technology. With two years of JavaScript development experience, I combine analytical and logical approaches to deliver solutions that are attractive end-users and developers alike. Additionally, I leverage my excellent communication skills to bridge the gap of understanding between those with non-technical backgrounds and developers. I consider the strongest interfaces to be the ones that come naturally to the user, as if they have always been a part of his or her life.  When not coding you can find me hiking in a nearby forest, playing video games, or just spending time with friends. Additionally, as a classically trained singer, I have sung in languages such as French, Spanish, and Italian.
-`
+  const aboutMe = `I’m a dedicated software engineer with a B.S. in Computer Science and am currently pursuing an M.S. in Software Engineering. My long-term goal is to move into software architecture for large-scale systems. I have extensive experience in software engineering and full-stack web development, having worked with a variety of languages including Java, JavaScript, Python, Swift, C, and C++, and databases such as SQL, Neo4J, and MongoDB. I’m familiar with cloud services (such as AWS), containerization (such as Docker), and DevOps practices, including CI/CD pipelines. My project experience spans building full-stack CRUD apps, iOS applications, games, and NPM packages, along with applying software engineering principles to design and implement robust systems.
 
+I’ve also taken on leadership roles, serving as the Implementation Manager for my capstone project and mentoring students as a teaching assistant. I have a strong ability to communicate effectively with both technical and non-technical audiences, prioritizing the development of scalable and user-friendly solutions that foster effective collaboration. I believe that the most successful systems are those that seamlessly integrate into users' workflows and stand the test of time.`
 
   return (
       <div className='aboutme-styles'>

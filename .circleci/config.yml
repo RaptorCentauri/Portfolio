@@ -1,44 +1,48 @@
-version: 2.1 # use CircleCI 2.1
+version: 2.1  # Use CircleCI 2.1
 
 executors:
-  node-18-executor:  # Update to a valid Node.js 18 image
+  python-3.9-executor:
     docker:
-      - image: circleci/node:17  # Use a specific version of Node.js 18
+      - image: circleci/python:3.9  # Use an official Python image
 
 commands:
   get_pip:
     description: "Install pip for Python 3.9"
     steps:
-      - run: |
-          echo "deb http://archive.debian.org/debian/ bullseye main" | sudo tee /etc/apt/sources.list
-          echo "Acquire::Check-Valid-Until false;" | sudo tee /etc/apt/apt.conf.d/99ignore-valid-until
       - run: sudo apt-get update
-      - run: sudo apt-get install python3.9-dev python3-pip -y
+      - run: sudo apt-get install python3-pip -y
       - run: pip3 install --upgrade pip
+
   get_aws_cli:
     description: "Install AWS CLI"
     steps:
       - run: sudo pip3 install awscli --upgrade
+
   install_npm:
     description: "Install the latest npm version"
     steps:
-      - run: 'sudo npm install -g npm@latest'
+      - run: sudo npm install -g npm@latest
+
   install_dependencies:
     description: "Install project dependencies"
     steps:
       - run: npm install
+
   test_code:
     description: "Test the code"
     steps:
       - run: npm test
+
   test_coverage:
     description: "Check the code coverage"
     steps:
       - run: npm run coverage
+
   build_project:
     description: "Build the project"
     steps:
       - run: npm run build
+
   deploy_project:
     description: "Deploy the project"
     steps:
@@ -46,7 +50,7 @@ commands:
 
 jobs:
   build:
-    executor: node-18-executor  # Updated executor
+    executor: python-3.9-executor  # Use the Python executor
     steps:
       - checkout
       - get_pip

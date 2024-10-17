@@ -7,21 +7,19 @@ executors:
 
 commands:
   get_pip:
-    description: "Install pip"
+    description: "Install pip for Python 3"
     steps:
       - run: |
           echo "deb http://archive.debian.org/debian/ stretch main" | sudo tee /etc/apt/sources.list
           echo "deb http://archive.debian.org/debian-security/ stretch/updates main" | sudo tee -a /etc/apt/sources.list
           echo "Acquire::Check-Valid-Until false;" | sudo tee /etc/apt/apt.conf.d/99ignore-valid-until
       - run: sudo apt-get update
-      - run: sudo apt-get install python3-dev -y
-      - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-      - run: sudo python get-pip.py
-      - run: pip install --upgrade pip
+      - run: sudo apt-get install python3-dev python3-pip -y
+      - run: pip3 install --upgrade pip
   get_aws_cli:
-    description: "install awscli"
+    description: "Install AWS CLI"
     steps:
-      - run: sudo pip install awscli --upgrade
+      - run: sudo pip3 install awscli --upgrade
   install_npm:
     description: "Install the latest npm version"
     steps:
@@ -43,7 +41,7 @@ commands:
     steps:
       - run: npm run build
   deploy_project:
-    description: "deploy the project"
+    description: "Deploy the project"
     steps:
       - run: npm run deploy
 

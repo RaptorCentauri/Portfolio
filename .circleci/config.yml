@@ -7,10 +7,14 @@ executors:
 
 commands:
   get_pip:
-    description: "install pip"
+    description: "Install pip"
     steps:
+      - run: |
+          echo "deb http://archive.debian.org/debian/ stretch main" | sudo tee /etc/apt/sources.list
+          echo "deb http://archive.debian.org/debian-security/ stretch/updates main" | sudo tee -a /etc/apt/sources.list
+          echo "Acquire::Check-Valid-Until false;" | sudo tee /etc/apt/apt.conf.d/99ignore-valid-until
       - run: sudo apt-get update
-      - run: sudo apt-get install python3-dev -y
+      - run: sudo apt-get install python-dev -y
       - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
       - run: sudo python get-pip.py
       - run: pip install --upgrade pip

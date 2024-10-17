@@ -6,6 +6,19 @@ executors:
       - image: circleci/python:3.9  # Use an official Python image
 
 commands:
+  install_node_and_npm:
+    description: "Install Node.js and npm"
+    steps:
+      - run:
+          name: "Install Node.js"
+          command: |
+            curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+      - run:
+          name: "Verify Node.js and npm installation"
+          command: |
+            node -v
+            npm -v
   get_pip:
     description: "Install pip for Python 3.9"
     steps:
